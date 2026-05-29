@@ -1,223 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
+                                                                                                         <!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loading</title>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K5L7W8V6ZM"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-K5L7W8V6ZM');
-</script>
-<style>
-html,body{
-margin:0;
-height:100%;
-background:radial-gradient(circle,#0b1220,#05060c);
-font-family:Arial;
-overflow:hidden;
-display:flex;
-flex-direction:column;
-}
-/* 🔵 SOCIAL BAR AREA (TOP FIX) */
-#social-top{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-z-index:9999;
-}
-/* CENTER CONTENT */
-.top-area{
-flex:1;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-transform:scale(clamp(1, 1.2vw, 1.6));
-padding-bottom: 100px; /* ایجاد فاصله برای عدم تداخل با بنر شناور پایین */
-}
-/* BOOK */
-.book{
-position:relative;
-width:220px;
-height:140px;
-perspective:1000px;
-}
-.book-base{
-position:absolute;
-width:100%;
-height:100%;
-display:flex;
-}
-.base-left,.base-right{
-width:50%;
-height:100%;
-border:3px solid #00f2fe;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#00f2fe;
-font-weight:bold;
-text-shadow:0 0 10px #00f2fe;
-}
-.base-left{border-right:none;border-radius:14px 0 0 14px;}
-.base-right{border-left:none;border-radius:0 14px 14px 0;}
-.page{
-position:absolute;
-width:50%;
-height:100%;
-right:0;
-border:3px solid #00f2fe;
-border-left:none;
-background:transparent;
-transform-origin:left;
-animation:flip 2.8s infinite;
-border-radius:0 18px 18px 0;
-}
-.page:nth-child(1){animation-delay:0s;}
-.page:nth-child(2){animation-delay:0.9s;}
-.page:nth-child(3){animation-delay:1.8s;}
-@keyframes flip{
-0%{transform:rotateY(0);}
-45%{transform:rotateY(-85deg);}
-100%{transform:rotateY(-180deg);opacity:0;}
-}
-.spine{
-position:absolute;
-left:50%;
-width:4px;
-height:100%;
-background:#00f2fe;
-transform:translateX(-50%);
-}
-/* PROGRESS */
-.progress-wrap{
-margin-top:15px;
-text-align:center;
-width:240px;
-}
-.percent{
-color:#6fc3ff;
-font-size:20px;
-font-weight:bold;
-}
-.bar{
-width:100%;
-height:6px;
-background:#222;
-border-radius:20px;
-overflow:hidden;
-}
-.fill{
-height:100%;
-width:0%;
-background:linear-gradient(90deg,#00f2fe,#4facfe);
-}
-/* LOADING TEXT */
-.loading-text{
-margin-top:10px;
-color:#9fd0ff;
-font-size:14px;
-letter-spacing: 0.5px;
-}
-/* 🔴 FLOATING NATIVE BANNER BOTTOM */
-#ad-container{
-position:fixed; /* شناور بودن بنر بدون جابجایی با اسکرول */
-bottom:0;
-left:50%;
-transform:translateX(-50%);
-width:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index: 999999;
-}
-</style>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Google Books - Premium Portal</title>
+
+    <style>
+
+        :root {
+
+            --tg-dark-bg: #17212b;
+
+            --laser-blue: #00f0ff;
+
+            --laser-glow: rgba(0, 240, 255, 0.45);
+
+            --btn-blue: #2481cc;
+
+            --btn-shadow: rgba(11, 44, 71, 0.95);
+
+            --card-radius: 35px;
+
+            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+
+        body { background-color: var(--tg-dark-bg); color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; padding: 160px 24px 60px 24px; position: relative; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+        .telegram-btn { position: fixed; top: 30px; left: 50%; transform: translateX(-50%); z-index: 10000; background: linear-gradient(135deg, #00f0ff, #0066ff); color: #ffffff; text-decoration: none; padding: 13px 38px; border-radius: 20px; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 12px; border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 8px 25px var(--laser-glow), inset 0 1px 2px rgba(255, 255, 255, 0.4); transition: var(--transition-smooth); white-space: nowrap; }
+
+        .telegram-btn:hover { transform: translateX(-50%) translateY(-3px); box-shadow: 0 12px 35px rgba(0, 240, 255, 0.7); filter: brightness(1.1); }
+
+        .telegram-icon { width: 22px; height: 22px; fill: #ffffff; transition: var(--transition-smooth); }
+
+        .telegram-btn:hover .telegram-icon { transform: scale(1.1); }
+
+        .main-title { font-size: 3rem; font-weight: 900; text-align: center; margin-bottom: 70px; line-height: 1.2; letter-spacing: -1px; background: linear-gradient(180deg, #ffffff 0%, #b0c4de 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); }
+
+        .cards-container { display: grid; grid-template-columns: repeat(3, minmax(260px, 340px)); gap: 50px; width: 100%; max-width: 1200px; justify-content: center; }
+
+        .card-wrapper { display: flex; flex-direction: column; align-items: center; width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); padding: 22px; border-radius: calc(var(--card-radius) + 10px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); transition: var(--transition-smooth); }
+
+        .card-wrapper:hover { transform: translateY(-8px); background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.12); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5); }
+
+        .card-img-box { width: 100%; aspect-ratio: 1 / 1; background-color: #ffffff; border-radius: var(--card-radius); padding: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); transition: var(--transition-smooth); }
+
+        .card-img { max-width: 100%; max-height: 100%; object-fit: contain; transition: var(--transition-smooth); }
+
+        .card-wrapper:hover .card-img { transform: scale(1.05); }
+
+        .card-btn { width: 100%; background-color: var(--btn-blue); color: #ffffff; text-decoration: none; text-align: center; padding: 14px 20px; border-radius: 16px; font-size: 15px; font-weight: 600; box-shadow: 0 10px 22px var(--btn-shadow); border: 1px solid rgba(255, 255, 255, 0.08); transition: var(--transition-smooth); }
+
+        .card-btn:hover { background-color: #2b96eb; box-shadow: 0 12px 28px rgba(36, 129, 204, 0.5); transform: translateY(-1px); }
+
+        .attribution { display: none; }
+
+        @media (max-width: 950px) { .cards-container { grid-template-columns: repeat(2, minmax(240px, 320px)); gap: 40px; } .main-title { font-size: 2.5rem; } }
+
+        @media (max-width: 600px) {
+
+            body { padding-top: 130px; padding-left: 12px; padding-right: 12px; }
+
+.main-title { font-size: 1.8rem; margin-bottom: 45px; }
+
+            .cards-container { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+            .card-wrapper { padding: 10px; border-radius: 25px; }
+
+            .card-img-box { border-radius: 20px; padding: 10px; margin-bottom: 12px; }
+
+            .card-btn { font-size: 11px; padding: 11px 4px; border-radius: 12px; box-shadow: 0 6px 14px var(--btn-shadow); }
+
+            .telegram-btn { padding: 11px 24px; font-size: 13px; top: 20px; border-radius: 14px; box-shadow: 0 6px 18px var(--laser-glow); }
+
+        }
+
+    </style>
+
 </head>
+
 <body>
-<!-- 🔵 SOCIAL BAR TOP -->
-<div id="social-top">
-<script src="https://speedingdeadlyplays.com/b3/e9/4d/b3e94d023432c8cb40b981d7804166a2.js"></script>
-</div>
 
-<!-- CENTER -->
-<div class="top-area">
-<div class="book">
-<div class="book-base">
-<div class="base-left">Google</div>
-<div class="base-right">Books</div>
-</div>
-<div class="page"></div>
-<div class="page"></div>
-<div class="page"></div>
-<div class="spine"></div>
-</div>
-<div class="progress-wrap">
-<div class="percent" id="percent">0%</div>
-<div class="bar">
-<div class="fill" id="fill"></div>
-</div>
-<div class="loading-text">Loading...</div>
-</div>
-</div>
 
-<!-- 🔴 NATIVE BANNER BOTTOM -->
-<div id="ad-container"></div>
 
-<script>
-/* انتخاب هوشمند سایز بنر بر اساس ابعاد صفحه نمایش */
-(function() {
-var container = document.getElementById("ad-container");
-var w = window.innerWidth;
-var key = "";
-var width = 0;
-var height = 0;
+    <!-- دکمه شناور تلگرام متصل به لینک درخواستی شما -->
 
-if (w <= 480) {
-// صفحه کوچک یا موبایل (بنر ۳۲۰ در ۵۰)
-key = "3b8048b78e2b0fb0b882483f96fca8a2"; width = 320; height = 50;
-} else if (w <= 768) {
-// صفحه متوسط یا تبلت (بنر ۴۶۸ در ۶۰)
-key = "27bf67bdd07dd3734a6fdff8c7879c99"; width = 468; height = 60;
-} else {
-// کامپیوتر و صفحات بزرگ دسکتاپ (بنر ۷۲۸ در ۹۰)
-key = "30c18b6ace1c2676949453fd6ac33776"; width = 728; height = 90;
-}
+    <a href="https://books-photoes.webflow.io/old-home" class="telegram-btn">
 
-window.atOptions = {
-'key' : key,
-'format' : 'iframe',
-'height' : height,
-'width' : width,
-'params' : {}
-};
+        <span>Our Telegram channels</span>
 
-var s = document.createElement("script");
-s.src = "https://speedingdeadlyplays.com/" + key + "/invoke.js";
-s.async = true;
-container.appendChild(s);
-})();
-</script>
+        <!-- آیکون رسمی، ترمیم‌شده و کاملاً متقارن هواپیمای کاغذی تلگرام از Flaticon -->
 
-<script>
-/* loader - دقیقا ۷ ثانیه (۷۰۰۰ میلی‌ثانیه تقسیم بر ۱۰۰ گام = هر گام ۷۰ میلی‌ثانیه) */
-let p=0;
-const percent=document.getElementById("percent");
-const fill=document.getElementById("fill");
-let load=setInterval(()=>{
-p++;
-percent.innerText=p+"%";
-fill.style.width=p+"%";
-if(p>=100){
-clearInterval(load);
-setTimeout(()=>{
-window.location.href="https://Google-Books.github.io/MainPage/";
-},300);
-}
-},35);
-</script>
+        <svg class="telegram-icon" viewBox="0 0 24 24">
+
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.93 1.23-5.46 3.62-.51.35-.98.52-1.4.51-.46-.01-1.35-.26-2.01-.48-.81-.27-1.46-.42-1.4-.88.03-.24.38-.49 1.04-.74 4.07-1.77 6.79-2.94 8.15-3.5 3.89-1.61 4.7-1.89 5.23-1.9.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.13-.03.2z"/>
+
+        </svg>
+
+    </a>
+
+
+
+    <h1 class="main-title">Welcome To<br>Google Books!</h1>
+
+
+
+    <div class="cards-container">
+
+        <!-- کارت اول: کتاب‌های رایگان (با لینک تصویر کاملاً سالم و فیکس‌شده) -->
+
+        <div class="card-wrapper">
+
+            <div class="card-img-box">
+
+                <img src="https://trilliardaire.sirv.com/FreeBooks.png" alt="Free Books" class="card-img" crossorigin="anonymous">
+
+            </div>
+
+            <a href="#" class="card-btn">Free Books</a>
+
+        </div>
+
+
+
+        <!-- کارت دوم: کتاب‌های صوتی رایگان (با لینک تصویر کاملاً بازسازی شده و بدون کوتاه‌شدگی) -->
+
+        <div class="card-wrapper">
+
+            <div class="card-img-box">
+
+                <img src="https://trilliardaire.sirv.com/%DA%A9%D8%AA%D8%A7%D8%A8%20%D9%87%D8%A7%DB%8C%20%DA%AF%D9%88%DA%AF%D9%84/audio.avif" alt="Free Audio Books" class="card-img" crossorigin="anonymous">
+
+            </div>
+
+            <a href="https://audiobookbay.lu" target="_blank" class="card-btn">Free Audio Books</a>
+
+        </div>
+
+
+
+        <!-- کارت سوم: بهترین کتاب‌های سال ۲۰۲۶ (با لینک تصویر کاملاً بازسازی شده و بدون کوتاه‌شدگی) -->
+
+        <div class="card-wrapper">
+
+            <div class="card-img-box">
+
+                <img src="https://trilliardaire.sirv.com/%DA%A9%D8%AA%D8%A7%D8%A8%20%D9%87%D8%A7%DB%8C%20%DA%AF%D9%88%DA%AF%D9%84/b_best%202026.avif" alt="The Best Books of 2026" class="card-img" crossorigin="anonymous">
+
+            </div>
+
+            <a href="https://books-photoes.webflow.io/" class="card-btn">The Best Books of 2026</a>
+
+        </div>
+
+    </div>
+
+
+
+<!-- خط کپی‌رایت فلات‌آیکون درخواستی شما -->
+
+    <div class="attribution">
+
+        <a href="https://www.flaticon.com/free-icons/telegram" title="telegram icons">Telegram icons created by See Icons - Flaticon</a>
+
+    </div>
+
+
+
+    <!-- Social Bar Ad -->
+
+    <script src="https://speedingdeadlyplays.com/b3/e9/4d/b3e94d023432c8cb40b981d7804166a2.js"></script>
+
+
+
 </body>
+
+</html>
+
+
+
+    <!-- خط کپی‌رایت فلات‌آیکون درخواستی شما -->
+
+    <div class="attribution">
+
+        <a href="https://www.flaticon.com/free-icons/telegram" title="telegram icons">Telegram icons created by See Icons - Flaticon</a>
+
+    </div>
+
+
+
+</body>
+
 </html>
