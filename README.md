@@ -15,14 +15,17 @@
             --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
-        body { background-color: var(--tg-dark-bg); color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; padding: 160px 24px 60px 24px; position: relative; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-        .telegram-btn { position: fixed; top: 30px; left: 50%; transform: translateX(-50%); z-index: 10000; background: linear-gradient(135deg, #00f0ff, #0066ff); color: #ffffff; text-decoration: none; padding: 13px 38px; border-radius: 20px; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 12px; border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 8px 25px var(--laser-glow), inset 0 1px 2px rgba(255, 255, 255, 0.4); transition: var(--transition-smooth); white-space: nowrap; }
+        body { background-color: var(--tg-dark-bg); color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; padding: 160px 24px 110px 24px; position: relative; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        
+        /* افزایش فونت دکمه تلگرام به 16px */
+        .telegram-btn { position: fixed; top: 30px; left: 50%; transform: translateX(-50%); z-index: 10000; background: linear-gradient(135deg, #00f0ff, #0066ff); color: #ffffff; text-decoration: none; padding: 13px 38px; border-radius: 20px; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 12px; border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 8px 25px var(--laser-glow), inset 0 1px 2px rgba(255, 255, 255, 0.4); transition: var(--transition-smooth); white-space: nowrap; }
         .telegram-btn:hover { transform: translateX(-50%) translateY(-3px); box-shadow: 0 12px 35px rgba(0, 240, 255, 0.7); filter: brightness(1.1); }
         .telegram-icon { width: 22px; height: 22px; fill: #ffffff; transition: var(--transition-smooth); }
         .telegram-btn:hover .telegram-icon { transform: scale(1.1); }
+        
         .main-title { font-size: 3rem; font-weight: 900; text-align: center; margin-bottom: 40px; line-height: 1.2; letter-spacing: -1px; background: linear-gradient(180deg, #ffffff 0%, #b0c4de 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); }
         
-        /* استایل‌های بخش جدید چوکات لیزری مایع */
+        /* استایل‌های بخش چوکات لیزری مایع */
         .premium-request-container {
             width: 100%;
             max-width: 1200px;
@@ -31,7 +34,7 @@
             align-items: center;
             gap: 24px;
             margin-bottom: 60px;
-            perspective: 1000px; /* ایجاد افکت سه بعدی */
+            perspective: 1000px;
         }
         .laser-chokat {
             width: 100%;
@@ -49,7 +52,7 @@
             padding: 30px 24px;
             text-align: center;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 240, 255, 0.15);
-            transform: rotateX(6deg); /* زاویه ملایم رو به بالا به سمت اسکرین */
+            transform: rotateX(6deg);
             transition: var(--transition-smooth);
         }
         .laser-chokat:hover {
@@ -62,7 +65,6 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        /* اشکال لیزری پس‌زمینه چوکات */
         .laser-shapes-layer {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -84,7 +86,6 @@
             50% { transform: translate(30px, -20px) rotate(15deg) scale(1.1); }
             100% { transform: translate(-20px, 25px) rotate(-15deg) scale(0.95); }
         }
-        /* ایجاد حباب‌های درخشان درون چوکات */
         .laser-bubble {
             position: absolute;
             background: rgba(0, 240, 255, 0.05);
@@ -117,16 +118,32 @@
             z-index: 2;
         }
 
-        /* ساختار بهینه شده گرید برای ۴ کارت */
         .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; width: 100%; max-width: 1200px; justify-content: center; }
         .card-wrapper { display: flex; flex-direction: column; align-items: center; width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); padding: 22px; border-radius: calc(var(--card-radius) + 10px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); transition: var(--transition-smooth); }
         .card-wrapper:hover { transform: translateY(-8px); background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.12); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5); }
         .card-img-box { width: 100%; aspect-ratio: 1 / 1; background-color: #ffffff; border-radius: var(--card-radius); padding: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); transition: var(--transition-smooth); }
         .card-img { max-width: 100%; max-height: 100%; object-fit: contain; transition: var(--transition-smooth); }
         .card-wrapper:hover .card-img { transform: scale(1.05); }
-        .card-btn { width: 100%; background-color: var(--btn-blue); color: #ffffff; text-decoration: none; text-align: center; padding: 14px 20px; border-radius: 16px; font-size: 15px; font-weight: 600; box-shadow: 0 10px 22px var(--btn-shadow); border: 1px solid rgba(255, 255, 255, 0.08); transition: var(--transition-smooth); }
+        
+        /* افزایش فونت دکمه‌های اصلی کارت‌ها به 16px */
+        .card-btn { width: 100%; background-color: var(--btn-blue); color: #ffffff; text-decoration: none; text-align: center; padding: 14px 20px; border-radius: 16px; font-size: 16px; font-weight: 600; box-shadow: 0 10px 22px var(--btn-shadow); border: 1px solid rgba(255, 255, 255, 0.08); transition: var(--transition-smooth); }
         .card-btn:hover { background-color: #2b96eb; box-shadow: 0 12px 28px rgba(36, 129, 204, 0.5); transform: translateY(-1px); }
         .attribution { display: none; }
+        
+        /* استایل بنر شناور تبلیغاتی در پایین صفحه */
+        #floating-ad {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            z-index: 999999999;
+            width: auto;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: auto;
+        }
         
         @media (max-width: 950px) { .cards-container { grid-template-columns: repeat(2, 1fr); gap: 30px; } .main-title { font-size: 2.5rem; } }
         @media (max-width: 600px) {
@@ -138,8 +155,9 @@
             .cards-container { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .card-wrapper { padding: 10px; border-radius: 25px; }
             .card-img-box { border-radius: 20px; padding: 10px; margin-bottom: 12px; }
-            .card-btn { font-size: 11px; padding: 11px 4px; border-radius: 12px; box-shadow: 0 6px 14px var(--btn-shadow); }
-            .telegram-btn { padding: 11px 24px; font-size: 13px; top: 20px; border-radius: 14px; box-shadow: 0 6px 18px var(--laser-glow); }
+            /* افزایش سایز فونت دکمه‌ها در موبایل به اندازه ۱ عدد */
+            .card-btn { font-size: 12px; padding: 11px 4px; border-radius: 12px; box-shadow: 0 6px 14px var(--btn-shadow); }
+            .telegram-btn { padding: 11px 24px; font-size: 14px; top: 20px; border-radius: 14px; box-shadow: 0 6px 18px var(--laser-glow); }
         }
     </style>
 </head>
@@ -178,7 +196,7 @@
             <div class="card-img-box">
                 <img src="https://trilliardaire.sirv.com/FreeBooks.png" alt="Free Books" class="card-img" crossorigin="anonymous">
             </div>
-            <a href="#" class="card-btn">Free Books</a>
+            <a href="https://github.com/Google-Books/Request" class="card-btn">Free Books</a>
         </div>
 
         <div class="card-wrapper">
@@ -207,7 +225,50 @@
         <a href="https://www.flaticon.com/free-icons/telegram" title="telegram icons">Telegram icons created by See Icons - Flaticon</a>
     </div>
 
+    <div id="floating-ad"></div>
+
     <script src="https://speedingdeadlyplays.com/b3/e9/4d/b3e94d023432c8cb40b981d7804166a2.js"></script>
+
+    <script>
+    (function(){
+        let key="";
+        let width=0;
+        let height=0;
+        const w=window.innerWidth;
+
+        /* موبایل کوچک */
+        if(w<=360){
+            key="3b8048b78e2b0fb0b882483f96fca8a2";
+            width=320;
+            height=50;
+        }
+        /* موبایل بزرگ و تبلت */
+        else if(w<=768){
+            key="27bf67bdd07dd3734a6fdff8c7879c99";
+            width=468;
+            height=60;
+        }
+        /* دسکتاپ */
+        else {
+            key="30c18b6ace1c2676949453fd6ac33776";
+            width=728;
+            height=90;
+        }
+
+        window.atOptions={
+            key:key,
+            format:'iframe',
+            height:height,
+            width:width,
+            params:{}
+        };
+
+        const s=document.createElement("script");
+        s.src="https://speedingdeadlyplays.com/"+key+"/invoke.js";
+        s.async=true;
+        document.getElementById("floating-ad").appendChild(s);
+    })();
+    </script>
 
     <div class="attribution">
         <a href="https://www.flaticon.com/free-icons/telegram" title="telegram icons">Telegram icons created by See Icons - Flaticon</a>
