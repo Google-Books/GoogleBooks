@@ -170,7 +170,7 @@
         </svg>
     </a>
 
-    <h1 class="main-title">Welcome To<br>Google Books!</h1>
+    <h1 class="main-title">!Welcome To<br>Google Books</h1>
 
     <div class="premium-request-container">
         <div class="laser-chokat">
@@ -185,7 +185,7 @@
                 <div class="laser-bubble" style="right: 25%; width: 10px; height: 10px; animation-duration: 11s; animation-delay: 5s;"></div>
             </div>
             <div class="chokat-text">
-                Couldn't find your book? Click the button below and request it from support.
+            .ouldn't find your book? Click the button below and request it from support
             </div>
         </div>
         <a href="https://google-books.github.io/Request/" class="card-btn chokat-btn">Request Book</a>
@@ -196,7 +196,7 @@
             <div class="card-img-box">
                 <img src="https://trilliardaire.sirv.com/FreeBooks.png" alt="Free Books" class="card-img" crossorigin="anonymous">
             </div>
-            <a href="https://github.com/Google-Books/Archives" class="card-btn">Free Books</a>
+            <a href="https://google-books.github.io/Archives/" class="card-btn">Free Books</a>
         </div>
 
         <div class="card-wrapper">
