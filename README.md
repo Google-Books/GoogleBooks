@@ -185,7 +185,7 @@
                 <div class="laser-bubble" style="right: 25%; width: 10px; height: 10px; animation-duration: 11s; animation-delay: 5s;"></div>
             </div>
             <div class="chokat-text">
-            .ouldn't find your book? Click the button below and request it from support
+            ouldn't find your book? Click the button below and request it from support
             </div>
         </div>
         <a href="https://google-books.github.io/Request/" class="card-btn chokat-btn">Request Book</a>
