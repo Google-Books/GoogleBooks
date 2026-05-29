@@ -170,7 +170,7 @@
         </svg>
     </a>
 
-    <h1 class="main-title">!Welcome To<br>Google Books</h1>
+    <h1 class="main-title">Welcome To<br>!Google Books</h1>
 
     <div class="premium-request-container">
         <div class="laser-chokat">
