@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KNTP1QVNHJ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -136,7 +135,7 @@
         .card-wrapper:hover .card-img { transform: scale(1.05); }
         
         /* افزایش فونت دکمه‌های اصلی کارت‌ها به 16px */
-        .card-btn { width: 100%; background-color: var(--btn-blue); color: #ffffff; text-decoration: none; text-align: center; padding: 14px 20px; border-radius: 16px; font-size: 16px; font-weight: 600; box-shadow: 0 10px 22px var(--btn-shadow); border: 1px solid rgba(255, 255, 255, 0.08); transition: var(--transition-smooth); }
+        .card-btn { width: 100%; background-color: var(--btn-blue); color: #ffffff; text-decoration: none; text-align: center; padding: 14px 20px; border-radius: 16px; font-size: 16px; font-weight: 600; box-shadow: 0 10px 22px var(--btn-shadow); border: 1px solid rgba(255, 255, 255, 0.08); transition: var(--transition-smooth); cursor: pointer;}
         .card-btn:hover { background-color: #2b96eb; box-shadow: 0 12px 28px rgba(36, 129, 204, 0.5); transform: translateY(-1px); }
         .attribution { display: none; }
         
@@ -153,6 +152,60 @@
             justify-content: center;
             align-items: center;
             pointer-events: auto;
+        }
+
+        /* اضافه شده برای پنجره اسکرولی Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            direction: ltr; /* برای چپ چین بودن متن انگلیسی */
+        }
+        .modal-content {
+            background: #1e2a36;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto; /* ایجاد اسکرول داخلی در صورت نیاز */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 240, 255, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .modal-text {
+            color: #ffffff;
+            line-height: 1.7;
+            font-size: 15px;
+            white-space: pre-line;
+            text-align: left;
+        }
+        .modal-got-it-btn {
+            background-color: var(--btn-blue);
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            padding: 14px 20px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 10px 22px var(--btn-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition-smooth);
+            width: 100%;
+        }
+        .modal-got-it-btn:hover {
+            background-color: #2b96eb;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(36, 129, 204, 0.5);
         }
         
         @media (max-width: 950px) { .cards-container { grid-template-columns: repeat(2, 1fr); gap: 30px; } .main-title { font-size: 2.5rem; } }
@@ -213,7 +266,7 @@
             <div class="card-img-box">
                 <img src="https://trilliardaire.sirv.com/%DA%A9%D8%AA%D8%A7%D8%A8%20%D9%87%D8%A7%DB%8C%20%DA%AF%D9%88%DA%AF%D9%84/audio.avif" alt="Free Audio Books" class="card-img" crossorigin="anonymous">
             </div>
-            <a href="https://audiobookbay.lu" target="_blank" class="card-btn">Free Audio Books</a>
+            <a href="#" id="open-audio-modal" class="card-btn">Free Audio Books</a>
         </div>
 
         <div class="card-wrapper">
@@ -228,6 +281,27 @@
                 <img src="https://trilliardaire.sirv.com/%DA%A9%D8%AA%D8%A7%D8%A8%20%D9%87%D8%A7%DB%8C%20%DA%AF%D9%88%DA%AF%D9%84/lopk.jpg" alt="Requested Books" class="card-img" crossorigin="anonymous">
             </div>
             <a href="https://google-books.github.io/Requested-Books/" class="card-btn">Requested Books</a>
+        </div>
+    </div>
+
+    <div id="audio-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-text">📚 All audiobooks are free. Download Guide:
+
+1. Click the three-line menu in the top-right corner and search for your book.
+
+2. Click on the book cover or image.
+
+3. On the new page, scroll all the way down and click "Torrent Free Downloads."
+
+4. If you already have an account, enter your username and password and sign in. If you don't have an account, click "Register", create a new username, enter your email address and password, and complete the registration.
+
+5. After registering, click "Login" and enter your username and password.
+
+6. Now you can search for your book again and click "Torrent Free Downloads" at the bottom of the page.
+
+7. A very small file will be downloaded first. Open the downloaded file and use a compatible torrent client to start downloading the audiobook automatically.</div>
+            <a href="https://audiobookbay.lu/" target="_blank" id="modal-got-it" class="modal-got-it-btn">Got it</a>
         </div>
     </div>
 
@@ -278,6 +352,30 @@
         s.async=true;
         document.getElementById("floating-ad").appendChild(s);
     })();
+    </script>
+
+    <script>
+        const openBtn = document.getElementById('open-audio-modal');
+        const modal = document.getElementById('audio-modal');
+        const gotItBtn = document.getElementById('modal-got-it');
+
+        // باز کردن پنجره با کلیک روی دکمه
+        openBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // جلوگیری از رفتن به بالای صفحه
+            modal.style.display = 'flex';
+        });
+
+        // بستن پنجره بعد از کلیک روی دکمه Got it
+        gotItBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // بستن پنجره در صورت کلیک کردن روی فضای خالی مشکی رنگ
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
     </script>
 
     <div class="attribution">
