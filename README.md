@@ -271,9 +271,9 @@
 
         <div class="card-wrapper">
             <div class="card-img-box">
-                <img src="https://trilliardaire.sirv.com/%DA%A9%D8%AA%D8%A7%D8%A8%20%D9%87%D8%A7%DB%8C%20%DA%AF%D9%88%DA%AF%D9%84/b_best%202026.avif" alt="The Best Books of 2026" class="card-img" crossorigin="anonymous">
+                <img src="https://trilliardaire.sirv.com/pngtree-google-play-download-icon-vector-png-image_12256662.png" alt="Our Apps" class="card-img" crossorigin="anonymous">
             </div>
-            <a href="https://books-photoes.webflow.io/" class="card-btn">The Best Books of 2026</a>
+            <a href="https://play.google.com/store/apps/developer?id=AbdulrahmanANDROID" class="card-btn">Our Apps</a>
         </div>
 
         <div class="card-wrapper">
