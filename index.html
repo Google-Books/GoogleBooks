@@ -310,8 +310,9 @@
     </div>
 
     <div id="floating-ad"></div>
+    
+<script src="https://speedingdeadlyplays.com/b3/e9/4d/b3e94d023432c8cb40b981d7804166a2.js"></script>
 
-<script src="https://speedingdeadlyplays.com/60/b2/7b/60b27b61db1a1c49b930ecabfc6e1472.js"></script>
 
 
     <script>
