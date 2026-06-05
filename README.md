@@ -139,6 +139,20 @@
         .card-btn:hover { background-color: #2b96eb; box-shadow: 0 12px 28px rgba(36, 129, 204, 0.5); transform: translateY(-1px); }
         .attribution { display: none; }
         
+        /* استایل بنر شناور تبلیغاتی در پایین صفحه */
+        #floating-ad {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            z-index: 999999999;
+            width: auto;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: auto;
+        }
 
         /* اضافه شده برای پنجره اسکرولی Modal */
         .modal-overlay {
@@ -295,8 +309,53 @@
         <a href="https://www.flaticon.com/free-icons/telegram" title="telegram icons">Telegram icons created by See Icons - Flaticon</a>
     </div>
 
-<script src="https://speedingdeadlyplays.com/60/b2/7b/60b27b61db1a1c49b930ecabfc6e1472.js"></script>
-  
+    <div id="floating-ad"></div>
+    
+<script src="https://speedingdeadlyplays.com/b3/e9/4d/b3e94d023432c8cb40b981d7804166a2.js"></script>
+
+
+
+    <script>
+    (function(){
+        let key="";
+        let width=0;
+        let height=0;
+        const w=window.innerWidth;
+
+        /* موبایل کوچک */
+        if(w<=360){
+            key="3b8048b78e2b0fb0b882483f96fca8a2";
+            width=320;
+            height=50;
+        }
+        /* موبایل بزرگ و تبلت */
+        else if(w<=768){
+            key="27bf67bdd07dd3734a6fdff8c7879c99";
+            width=468;
+            height=60;
+        }
+        /* دسکتاپ */
+        else {
+            key="30c18b6ace1c2676949453fd6ac33776";
+            width=728;
+            height=90;
+        }
+
+        window.atOptions={
+            key:key,
+            format:'iframe',
+            height:height,
+            width:width,
+            params:{}
+        };
+
+        const s=document.createElement("script");
+        s.src="https://speedingdeadlyplays.com/"+key+"/invoke.js";
+        s.async=true;
+        document.getElementById("floating-ad").appendChild(s);
+    })();
+    </script>
+
     <script>
         const openBtn = document.getElementById('open-audio-modal');
         const modal = document.getElementById('audio-modal');
@@ -327,3 +386,4 @@
 
 </body>
 </html>
+
